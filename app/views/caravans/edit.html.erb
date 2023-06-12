@@ -1,0 +1,28 @@
+
+<div class="container shadow mt-3 p-3 w-50">
+  <div>
+    <% if user_signed_in? && current_user.id == @caravan.user_id %>
+      <%= simple_form_for(@caravan) do |f| %>
+      <%= f.input :brand, label: "Marca" %>
+      <%= f.input :year, label: "Año" %>
+      <%= f.input :model, label: "Modelo" %>
+      <%= f.input :capacity, label: "Capacidad"  %>
+      <%= f.input :gas_type, label: "Combustible" %>
+      <%= f.input :description, label: "Descripción" %>
+      <%= f.input :day_price, label: "Precio por día" %>
+      <%= f.input :address, label: "Ciudad" %>
+      <div class="d-flex justify-content-evenly">
+        <%= link_to("Cancelar", mycaravans_path, class:"btn btn-primary ms-2") %>
+        <%= f.submit "Actualizar",class:"btn btn-primary"%>
+      </div>
+      <% end %>
+  </div>
+    <% else %>
+      <div class="d-flex justify-content-center">
+        <p>No posees permisos para editar esta caravana</p> <br>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%= link_to("Volver", mycaravans_path , class:"btn btn-primary ms-2") %>
+      </div>
+      <% end %>
+</div>

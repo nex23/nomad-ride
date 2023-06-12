@@ -1,0 +1,18 @@
+<div class="container shadow mt-3 p-3 w-50">
+  <%= simple_form_for(@caravan) do |f| %>
+    <%= f.input :brand, label: "Marca" %>
+    <%= f.input :year, label: "Año" %>
+    <%= f.input :model, label: "Modelo" %>
+    <%= f.input :capacity, label: "Capacidad" %>
+    <%= f.input :gas_type, label: "Combustible" %>
+    <%= f.input :address, label: "Dirección" %>
+    <%= f.input :description, label: "Descripción" %>
+    <%= f.input :day_price, label: "Precio por día" %>
+    <%= f.input :photo, as: :file, label: "Foto" %>
+    <div class="d-flex justify-content-evenly">
+      <%= link_to("Volver", caravans_path, class:"btn btn-primary ms-2") %>
+      <%= f.submit "Crear", class:"btn btn-primary"%>
+    </div>
+
+  <% end %>
+</div>
